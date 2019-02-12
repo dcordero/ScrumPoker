@@ -55,8 +55,8 @@ public class ScrumPoker.Application : Gtk.Application {
         
         var readyButton = new Gtk.Button.with_label("Ready !");
 
-        var label = readyButton.get_child() as Gtk.Label;
-        label.override_font(Pango.FontDescription.from_string("Sans 25"));
+        var readyLabel = readyButton.get_child() as Gtk.Label;
+        readyLabel.override_font(Pango.FontDescription.from_string("Sans 25"));
 
         readyButton.set_vexpand(true);
         (dialog.get_content_area () as Gtk.Box).add (readyButton);
@@ -75,7 +75,7 @@ public class ScrumPoker.Application : Gtk.Application {
     
     private void reveal(string value, Gtk.Button button) {
         button.set_label(value);
-        var label = button.get_child() as Gtk.Label;
-        label.override_font(Pango.FontDescription.from_string("Sans 100"));
+        var estimationLabel = button.get_child() as Gtk.Label;
+        estimationLabel.override_font(Pango.FontDescription.from_string("Sans 100"));
     }
 }
