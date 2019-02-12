@@ -18,13 +18,22 @@ public class ScrumPoker.Application : Gtk.Application {
     
     private void setUpWindow() {
         window = new ScrumPoker.Window(this);
+        setUpHeader(window);
         setUpCards();
         window.show_all();
     }
-    
+
+    private void setUpHeader(ScrumPoker.Window window) {
+        var titleBar = new Hdy.TitleBar();
+        var headerBar = new Gtk.HeaderBar();
+        headerBar.title = "Scrum Poker";
+        titleBar.add(headerBar);
+        window.set_titlebar(titleBar);
+    }
+
     private void setUpCards() {
         var box = new Gtk.VBox(true, 10);
-        
+
         var grid = new Gtk.Grid();
         grid.set_column_homogeneous(true);
         grid.set_row_homogeneous(true);
