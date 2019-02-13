@@ -27,6 +27,7 @@ public class ScrumPoker.Application : Gtk.Application {
         var titleBar = new Hdy.TitleBar();
         var headerBar = new Gtk.HeaderBar();
         headerBar.title = "Scrum Poker";
+        headerBar.show_close_button = true;
         titleBar.add(headerBar);
         window.set_titlebar(titleBar);
     }
