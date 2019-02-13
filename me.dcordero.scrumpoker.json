@@ -1,0 +1,67 @@
+{
+    "app-id" : "me.dcordero.scrumpoker",
+    "runtime" : "org.gnome.Sdk",
+    "runtime-version" : "3.30",
+    "sdk" : "org.gnome.Sdk",
+    "command" : "me.dcordero.scrumpoker",
+    "finish-args" : [
+        "--share=network",
+        "--share=ipc",
+        "--socket=x11",
+        "--socket=wayland",
+        "--filesystem=xdg-run/dconf",
+        "--filesystem=~/.config/dconf:ro",
+        "--talk-name=ca.desrt.dconf",
+        "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+    ],
+    "build-options" : {
+        "cflags" : "-O2 -g",
+        "cxxflags" : "-O2 -g",
+        "env" : {
+            "V" : "1"
+        }
+    },
+    "cleanup" : [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "/share/vala",
+        "*.la",
+        "*.a"
+    ],
+    "modules" : [
+        {
+            "name" : "libhandy",
+            "buildsystem" : "meson",
+            "builddir" : true,
+            "config-opts" : [
+                "-Dglade_catalog=disabled"
+            ],
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "https://source.puri.sm/Librem5/libhandy/-/archive/v0.0.7/libhandy-v0.0.7.tar.gz",
+                    "sha256" : "ab01b9baac4c782a527e1f4fa6bdd4a46783095f39dae199f5a7c45294b94621"
+                }
+            ]
+        },
+        {
+            "name" : "scrumpoker",
+            "buildsystem" : "meson",
+            "config-opts" : [
+                "--libdir=lib"
+            ],
+            "builddir" : true,
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "file:///home/dcordero/Sources/ScrumPoker"
+                }
+            ]
+        }
+    ]
+}
