@@ -1,6 +1,9 @@
 # ScrumPoker
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
 ScrumPoker is a simple and useful scrum planning poker App. It helps you by making your estimation meetings more effective.
+
+![](preview.gif)
 
 ## Building from source
 
